@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="style.css" />
+    <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.8/angular.js" data-semver="1.4.8"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.0/angular-animate.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <my-gallery feed="'feed.json'" search="true" items-per-page="15"></my-gallery>
+  </body>
+
+</html>

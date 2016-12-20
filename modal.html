@@ -1,0 +1,9 @@
+<div class='ng-modal' ng-show='show'>
+  <div class='ng-modal-overlay' ng-click='hideModal()'>
+  <button class=delete-btn ng-click="$parent.deleteImage($event)">Delete Image</button></div>
+    <div class='arrow-right' ng-click='$parent.nextImage()'></div>
+    <div class='arrow-left' ng-click='$parent.prevImage()'></div>
+    <div class='ng-modal-dialog-content' ng-transclude ng-click='hideModal()'>
+    </div>
+  
+</div>

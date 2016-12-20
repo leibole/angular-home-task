@@ -1,0 +1,44 @@
+
+<br>
+<modal-dialog class="mainModal" show='modalShown' width='400px' height='60%'>
+  <img class="animate-show" image-change check-image ng-src="{{mainImage.url}}">
+</modal-dialog>
+<div>
+  <div ng-show="search">Search for an image:
+    <input name="serachBox" type="text"  size="50" placeholder="Search String" ng-model="searchStr">
+  </div>
+  <br>
+  <div  ng-show="sorting">
+    Sort images by:
+    <select class="form-control" ng-model="sortBy">
+      <option value="">-- Sort gallery by --</option>
+      <option value="date">Date</option>
+      <option value="title">Title</option>
+    </select>
+  </div>
+  <br>
+  <div ng-show="pagination">
+    Images per page:
+    <select class="form-control" ng-model="resultsPerPage">
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+      <option value="20">20</option>
+    </select>
+  </div>
+  <br>
+  <button ng-click="slideShow()">Slide Show</button>
+</div>
+<br/>
+
+<div style="text-align:center" class="pagination-centered" ng-show="pagination">
+  <button type="button" class="pag-button" ng-disabled="curPage == 0" ng-click="curPage=curPage-1"> &lt; PREV</button>
+  <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
+  <button type="button" class="pag-button" ng-disabled="curPage >= images.length/resultsPerPage - 1" ng-click="curPage = curPage+1">NEXT &gt;</button>
+</div>
+
+<div class="container" ng-repeat="img in images|orderBy:sortBy|pagination: curPage * resultsPerPage|limitTo: resultsPerPage|filter: searchStr">
+<div class="beschreibung"><strong>{{img.title}}</strong><br> Date: {{img.date}}</div>
+		<img check-image class="imgs" ng-click="setImage(img)" ng-src="{{img.url}}">
+</div>
+
